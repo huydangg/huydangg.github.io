@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow: hidden; height: 100%; scroll-behavior: smooth;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<style>table{border-collapse:separate;border-spacing:0;white-space:nowrap;width:-moz-fit-content;width:-webkit-fit-content;height:-moz-fit-content;height:-webkit-fit-content;table-layout:fixed}table tr{border-bottom:.5px solid #DDD}table tbody{border-spacing:0}table td,table th{padding:0;border:.5px solid #DDD;margin:0}table tbody tr td{text-align:left}p{margin:0;padding:0}#listButton{margin:auto;white-space:nowrap;width:100%;overflow:auto}div[id^="sheet_"]{position:relative;overflow:auto;width:100%;height:95vh;display:none}@media print{div{overflow:initial !important}}</style><script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js"></script>
+<script type="text/javascript" crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/dangqhuy/ssf/ssf.js"></script>
+<script>function r(a){var c=0;return function(){return c<a.length?{done:!1,value:a[c++]}:{done:!0}}}function u(a){var c="undefined"!=typeof Symbol&&Symbol.iterator&&a[Symbol.iterator];return c?c.call(a):{next:r(a)}}function w(a){if(!(a instanceof Array)){a=u(a);for(var c,e=[];!(c=a.next()).done;)e.push(c.value);a=e}return a}var y="function"==typeof Object.defineProperties?Object.defineProperty:function(a,c,e){if(a==Array.prototype||a==Object.prototype)return a;a[c]=e.value;return a};
+function z(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var c=0;c<a.length;++c){var e=a[c];if(e&&e.Math==Math)return e}throw Error("Cannot find global object");}var A=z(this);function B(a,c){if(c){var e=A;a=a.split(".");for(var g=0;g<a.length-1;g++){var k=a[g];k in e||(e[k]={});e=e[k]}a=a[a.length-1];g=e[a];c=c(g);c!=g&&null!=c&&y(e,a,{configurable:!0,writable:!0,value:c})}}
+function C(){C=function(){};A.Symbol||(A.Symbol=D)}function E(a,c){this.a=a;y(this,"description",{configurable:!0,writable:!0,value:c})}E.prototype.toString=function(){return this.a};var D=function(){function a(e){if(this instanceof a)throw new TypeError("Symbol is not a constructor");return new E("jscomp_symbol_"+(e||"")+"_"+c++,e)}var c=0;return a}();
+function F(){C();var a=A.Symbol.iterator;a||(a=A.Symbol.iterator=A.Symbol("Symbol.iterator"));"function"!=typeof Array.prototype[a]&&y(Array.prototype,a,{configurable:!0,writable:!0,value:function(){return G(r(this))}});F=function(){}}function G(a){F();a={next:a};a[A.Symbol.iterator]=function(){return this};return a}
+function H(a,c){F();a instanceof String&&(a+="");var e=0,g={next:function(){if(e<a.length){var k=e++;return{value:c(k,a[k]),done:!1}}g.next=function(){return{done:!0,value:void 0}};return g.next()}};g[Symbol.iterator]=function(){return g};return g}B("Array.prototype.entries",function(a){return a?a:function(){return H(this,function(c,e){return[c,e]})}});var I=0,J=null,K=null,L=null,M=null,N=0,O="";google.charts.load("current",{packages:["corechart"]});
+function P(a){for(var c=[],e=0;e<arguments.length;++e)c[e]=arguments[e];return c[0].map(function(g,k){return c.slice(1).reduce(function(b,m){return w(b).concat([m[k]])},[g])})}function Q(a){var c=/\$(\w+)\$(\d+)/g,e,g=[];do(e=c.exec(a))&&g.push(e);while(e);if(g){if(g[0][1]==g[1][1])return"Column "+g[0][1];if(g[0][2]==g[1][2])return"Row "+g[0][2]}return""}
+function R(){for(var a=M.querySelectorAll(".n"),c=0;c<a.length;c++){var e=a[c].getAttribute("data-format-code");null!==e&&""!==e&&(a[c].innerHTML=window.SSF.format(e,Number(a[c].innerHTML)))}}function S(a,c,e,g){var k=new XMLHttpRequest;"json"===c?k.overrideMimeType("application/json"):k.overrideMimeType("text/plain");k.open("GET",a,!1);k.onreadystatechange=function(){4===k.readyState?e(k.responseText):g()};k.onerror=function(){g()};k.send(null)}
+function T(a,c){var e=!1,g=document.getElementById("chunk_"+a+"_mc");if(null!==g){g=g.getAttribute("data-chunk-url");var k=null;S(g,"json",function(b){void 0!==b?(c=(new Date).getTime(),k=JSON.parse(b),e=!0):2E3<=(new Date).getTime()-c||setTimeout(function(){T(a,c)},500)},function(){2E3<=(new Date).getTime()-c||setTimeout(function(){T(a,c)},500)});if(e)return k}}
+function U(a,c,e){var g=!1,k=document.getElementById("chunk_"+a+"_"+c);null===k||c>=N?(M.innerHTML+=O,O=""):(k=k.getAttribute("data-chunk-url"),S(k,"html",function(b){void 0!==b?(e=(new Date).getTime(),0===c?L.innerHTML=b:O+=b,c++,U(a,c,e)):2E3<=(new Date).getTime()-e?g=!0:setTimeout(function(){U(a,c,e)},500)},function(){2E3<=(new Date).getTime()-e?g=!0:setTimeout(function(){U(a,c,e)},500)}),g&&(M.innerHTML+=O,O=""))}
+function V(a){for(var c in a){var e=document.getElementById(I+"_"+c);e.colSpan=a[c].colspan;for(var g=a[c].colspan,k=e.parentNode;1<g;){var b=e.nextElementSibling;k.removeChild(b);g--}for(var m=c.match(/([A-Z]+)([0-9]+)/)[1],l=a[c].rowspan;1<l;){g=a[c].colspan;k=k.nextElementSibling;for(var q=document.getElementById(I+"_"+m+k.id);1<g;){b=q.nextElementSibling;if(!b)break;k.removeChild(b);g--}k.removeChild(q);l--}e.rowSpan=a[c].rowspan}}
+function W(a){a=a.getBoundingClientRect();return{left:a.left+J.scrollLeft,top:a.top+J.scrollTop}}
+function X(){for(var a=I,c=0;;){var e=document.getElementById("chunk_"+a+"_"+c+"_img");if(!e)break;var g=e.getAttribute("data-from-row"),k=e.getAttribute("data-from-col"),b=document.getElementById(a+"_"+(k+g));if(!b)break;g=e.getAttribute("data-from-coloff");k=e.getAttribute("data-from-rowoff");var m=e.getAttribute("data-height"),l=e.getAttribute("data-width");b=W(b);var q=document.createElement("img");q.src=e.getAttribute("data-img-url");q.style.top=b.top+parseInt(k,10)+"px";q.style.left=b.left+
+parseInt(g,10)+"px";q.style.position="absolute";q.a=m;q.width=l;J.appendChild(q);c++}}
+function Y(a,c,e){var g=document.getElementById("chunk_"+a+"_"+c+"_chart");if(g){var k=g.getAttribute("data-chart-url");S(k,"json",function(b){if(void 0!==b){b=JSON.parse(b);e=(new Date).getTime();var m=g.getAttribute("data-from-row"),l=g.getAttribute("data-from-col"),q=g.getAttribute("data-height"),x=g.getAttribute("data-width"),d=document.getElementById(a+"_"+(l+m));if(d){if("barChart"===b.charts[0].type||"bar3DChart"===b.charts[0].type||"lineChart"===b.charts[0].type||"pieChart"===b.charts[0].type||
+"pie3dChart"===b.charts[0].type||"areaChart"===b.charts[0].type||"area3DChart"===b.charts[0].type){m=g.getAttribute("data-from-coloff");l=g.getAttribute("data-from-rowoff");d=W(d);var n=document.createElement("div");n.id=a+"-"+c;n.style.position="absolute";n.style.top=d.top+parseInt(l,10)+"px";n.style.left=d.left+parseInt(m,10)+"px";n.style.width=parseInt(x,10)+"px";n.style.height=parseInt(q,10)+"px";J.appendChild(n)}q=[];x={title:b.title?b.title.text:"",b:!0};var v;m=[];l=[];for(d=0;d<b.charts.length;d++)if("barChart"===
+b.charts[d].type){x.seriesType="bars";"col"===b.charts[d].barDir?v=new google.visualization.ColumnChart(n):"bar"===b.charts[d].barDir&&(v=new google.visualization.BarChart(n));if(0===l.length)if(m.push("Row"),b.charts[d].sers[0].cat)l.push(b.charts[d].sers[0].cat);else{for(var f=[],p=u(b.charts[d].sers[0].val.entries()),h=p.next();!h.done;h=p.next()){h=u(h.value);var t=h.next().value;h.next();f.push(t+1+"")}l.push(f)}for(f=0;f<b.charts[d].sers.length;f++)b.charts[d].sers[f].tx?m.push(b.charts[d].sers[f].tx):
+m.push(Q(b.charts[d].sers[f].f)),l.push(b.charts[d].sers[f].val)}else if("bar3DChart"===b.charts[d].type){x.is3D=!0;x.seriesType="bars";"col"===b.charts[d].barDir?v=new google.visualization.ColumnChart(n):"bar"===b.charts[d].barDir&&(v=new google.visualization.BarChart(n));if(0===l.length)if(m.push("Row"),b.charts[d].sers[0].cat)l.push(b.charts[d].sers[0].cat);else{f=[];p=u(b.charts[d].sers[0].val.entries());for(h=p.next();!h.done;h=p.next())h=u(h.value),t=h.next().value,h.next(),f.push(t+1+"");l.push(f)}for(f=
+0;f<b.charts[d].sers.length;f++)b.charts[d].sers[f].tx?m.push(b.charts[d].sers[f].tx):m.push(Q(b.charts[d].sers[f].f)),l.push(b.charts[d].sers[f].val)}else if("lineChart"===b.charts[d].type){v=0!==d?new google.visualization.ComboChart(n):new google.visualization.LineChart(n);if(0===l.length)if(m.push("Row"),b.charts[d].sers[0].cat)l.push(b.charts[d].sers[0].cat);else{f=[];p=u(b.charts[d].sers[0].val.entries());for(h=p.next();!h.done;h=p.next())h=u(h.value),t=h.next().value,h.next(),f.push(t+1+"");
+l.push(f)}for(f=0;f<b.charts[d].sers.length;f++)b.charts[d].sers[f].tx?m.push(b.charts[d].sers[f].tx):m.push(Q(b.charts[d].sers[0].f)),l.push(b.charts[d].sers[f].val);f={};x.series=(f[m.length-2]={type:"line"},f)}else if("pieChart"===b.charts[d].type){v=new google.visualization.PieChart(n);if(0===l.length)if(m.push("Row"),b.charts[d].sers[0].cat)l.push(b.charts[d].sers[0].cat);else{f=[];p=u(b.charts[d].sers[0].val.entries());for(h=p.next();!h.done;h=p.next())h=u(h.value),t=h.next().value,h.next(),
+f.push(t+1+"");l.push(f)}for(f=0;f<b.charts[d].sers.length;f++)b.charts[d].sers[f].tx?m.push(b.charts[d].sers[f].tx):m.push(Q(b.charts[d].sers[0].f)),l.push(b.charts[d].sers[f].val)}else if("pie3DChart"===b.charts[d].type){x.is3D=!0;v=new google.visualization.PieChart(n);if(0===l.length)if(m.push("Row"),b.charts[d].sers[0].cat)l.push(b.charts[d].sers[0].cat);else{f=[];p=u(b.charts[d].sers[0].val.entries());for(h=p.next();!h.done;h=p.next())h=u(h.value),t=h.next().value,h.next(),f.push(t+1+"");l.push(f)}for(f=
+0;f<b.charts[d].sers.length;f++)b.charts[d].sers[f].tx?m.push(b.charts[d].sers[f].tx):m.push(Q(b.charts[d].sers[0].f)),l.push(b.charts[d].sers[f].val)}else if("areaChart"===b.charts[d].type){v=new google.visualization.AreaChart(n);if(0===l.length)if(m.push("Row"),b.charts[d].sers[0].cat)l.push(b.charts[d].sers[0].cat);else{f=[];p=u(b.charts[d].sers[0].val.entries());for(h=p.next();!h.done;h=p.next())h=u(h.value),t=h.next().value,h.next(),f.push(t+1+"");l.push(f)}for(f=0;f<b.charts[d].sers.length;f++)b.charts[d].sers[f].tx?
+m.push(b.charts[d].sers[f].tx):m.push(Q(b.charts[d].sers[0].f)),l.push(b.charts[d].sers[f].val)}else if("area3DChart"===b.charts[d].type){x.is3D=!0;v=new google.visualization.AreaChart(n);if(0===l.length)if(m.push("Row"),b.charts[d].sers[0].cat)l.push(b.charts[d].sers[0].cat);else{f=[];p=u(b.charts[d].sers[0].val.entries());for(h=p.next();!h.done;h=p.next())h=u(h.value),t=h.next().value,h.next(),f.push(t+1+"");l.push(f)}for(f=0;f<b.charts[d].sers.length;f++)b.charts[d].sers[f].tx?m.push(b.charts[d].sers[f].tx):
+m.push(Q(b.charts[d].sers[0].f)),l.push(b.charts[d].sers[f].val)}void 0!==v?(q.push(m),q.push.apply(q,w(P.apply(null,w(l)))),q=google.visualization.arrayToDataTable(q),v.draw(q,x),c++,Y(a,c,e)):(n=(new Date).getTime(),2E3<=n-e||setTimeout(function(){Y(a,c,e)},500))}}else n=(new Date).getTime(),2E3<=n-e||setTimeout(function(){Y(a,c,e)},500)},function(){2E3<=(new Date).getTime()-e||setTimeout(function(){Y(a,c,e)},500)})}}
+function Z(){J=document.getElementById("sheet_"+I);N=J.getAttribute("data-num-of-chunks");J.style.display="block";if(!document.getElementById("tb_"+I)){K=J.appendChild(document.createElement("table"));K.id="tb_"+I;L=K.appendChild(document.createElement("thead"));M=K.appendChild(document.createElement("tbody"));var a=T(I,(new Date).getTime());U(I,0,(new Date).getTime());R();a&&V(a);X();google.charts.setOnLoadCallback(function(){Y(I,0,(new Date).getTime())})}}
+window.handleButtonClick=function(a){var c=document.getElementById(a.srcElement.id);"btn_"+I!=c.id&&(J.style.display="none",document.getElementById("btn_"+I).style.fontWeight="normal",I=c.id.split("btn_")[1],c.style.fontWeight="bold",Z(),a.preventDefault())};document.addEventListener("DOMContentLoaded",function(){Z()},!1);
+</script><title>xlsxmagic 0.1.13</title></head>
+<body style="overflow: auto; height: 100vh">
+<div id="sheet_0" name="2019" data-num-of-chunks="2"><div id="chunk_0_mc" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_0_mc.json"></div>
+<div id="chunk_0_0_img" data-img-url="/Users/huydang/Projects/xlsxmagic/output/image17.png" data-height="31" data-width="140" data-from-col="AA" data-from-row="35" data-from-coloff="0" data-from-rowoff="8"></div>
+<div id="chunk_0_1_img" data-img-url="/Users/huydang/Projects/xlsxmagic/output/image18.png" data-height="31" data-width="140" data-from-col="AD" data-from-row="1" data-from-coloff="0" data-from-rowoff="8"></div>
+<div id="chunk_0_2_img" data-img-url="/Users/huydang/Projects/xlsxmagic/output/image19.png" data-height="104" data-width="294" data-from-col="AD" data-from-row="5" data-from-coloff="0" data-from-rowoff="0"></div>
+<div id="chunk_0_0" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_0_0.chunk"></div>
+<div id="chunk_0_1" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_0_1.chunk"></div>
+</div>
+<div id="sheet_1" name="Jan" data-num-of-chunks="2"><div id="chunk_1_mc" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_1_mc.json"></div>
+<div id="chunk_1_0" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_1_0.chunk"></div>
+<div id="chunk_1_1" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_1_1.chunk"></div>
+</div>
+<div id="sheet_2" name="Feb" data-num-of-chunks="3"><div id="chunk_2_mc" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_2_mc.json"></div>
+<div id="chunk_2_0_img" data-img-url="/Users/huydang/Projects/xlsxmagic/output/image24.jpeg" data-height="91" data-width="93" data-from-col="K" data-from-row="27" data-from-coloff="13" data-from-rowoff="13"></div>
+<div id="chunk_2_0" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_2_0.chunk"></div>
+<div id="chunk_2_1" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_2_1.chunk"></div>
+<div id="chunk_2_2" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_2_2.chunk"></div>
+</div>
+<div id="sheet_3" name="Mar" data-num-of-chunks="2"><div id="chunk_3_mc" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_3_mc.json"></div>
+<div id="chunk_3_0" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_3_0.chunk"></div>
+<div id="chunk_3_1" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_3_1.chunk"></div>
+</div>
+<div id="sheet_4" name="Apr" data-num-of-chunks="2"><div id="chunk_4_mc" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_4_mc.json"></div>
+<div id="chunk_4_0" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_4_0.chunk"></div>
+<div id="chunk_4_1" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_4_1.chunk"></div>
+</div>
+<div id="sheet_5" name="May" data-num-of-chunks="2"><div id="chunk_5_mc" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_5_mc.json"></div>
+<div id="chunk_5_0" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_5_0.chunk"></div>
+<div id="chunk_5_1" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_5_1.chunk"></div>
+</div>
+<div id="sheet_6" name="Jun" data-num-of-chunks="2"><div id="chunk_6_mc" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_6_mc.json"></div>
+<div id="chunk_6_0" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_6_0.chunk"></div>
+<div id="chunk_6_1" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_6_1.chunk"></div>
+</div>
+<div id="sheet_7" name="Jul" data-num-of-chunks="2"><div id="chunk_7_mc" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_7_mc.json"></div>
+<div id="chunk_7_0" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_7_0.chunk"></div>
+<div id="chunk_7_1" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_7_1.chunk"></div>
+</div>
+<div id="sheet_8" name="Aug" data-num-of-chunks="2"><div id="chunk_8_mc" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_8_mc.json"></div>
+<div id="chunk_8_0" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_8_0.chunk"></div>
+<div id="chunk_8_1" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_8_1.chunk"></div>
+</div>
+<div id="sheet_9" name="Sep" data-num-of-chunks="2"><div id="chunk_9_mc" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_9_mc.json"></div>
+<div id="chunk_9_0" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_9_0.chunk"></div>
+<div id="chunk_9_1" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_9_1.chunk"></div>
+</div>
+<div id="sheet_10" name="Oct" data-num-of-chunks="2"><div id="chunk_10_mc" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_10_mc.json"></div>
+<div id="chunk_10_0" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_10_0.chunk"></div>
+<div id="chunk_10_1" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_10_1.chunk"></div>
+</div>
+<div id="sheet_11" name="Nov" data-num-of-chunks="2"><div id="chunk_11_mc" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_11_mc.json"></div>
+<div id="chunk_11_0" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_11_0.chunk"></div>
+<div id="chunk_11_1" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_11_1.chunk"></div>
+</div>
+<div id="sheet_12" name="Dec" data-num-of-chunks="2"><div id="chunk_12_mc" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_12_mc.json"></div>
+<div id="chunk_12_0" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_12_0.chunk"></div>
+<div id="chunk_12_1" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_12_1.chunk"></div>
+</div>
+<div id="sheet_13" name="Sheet1" data-num-of-chunks="3"><div id="chunk_13_0_img" data-img-url="/Users/huydang/Projects/xlsxmagic/output/image45.png" data-height="248" data-width="682" data-from-col="A" data-from-row="13" data-from-coloff="0" data-from-rowoff="13"></div>
+<div id="chunk_13_0" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_13_0.chunk"></div>
+<div id="chunk_13_1" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_13_1.chunk"></div>
+<div id="chunk_13_2" data-chunk-url="/Users/huydang/Projects/xlsxmagic/output/chunks/chunk_13_2.chunk"></div>
+</div>
+<div id="listButton">
+<button id="btn_0" style="font-weight:bold;"onclick="handleButtonClick(event)">2019</button>
+<button id="btn_1" onclick="handleButtonClick(event)">Jan</button>
+<button id="btn_2" onclick="handleButtonClick(event)">Feb</button>
+<button id="btn_3" onclick="handleButtonClick(event)">Mar</button>
+<button id="btn_4" onclick="handleButtonClick(event)">Apr</button>
+<button id="btn_5" onclick="handleButtonClick(event)">May</button>
+<button id="btn_6" onclick="handleButtonClick(event)">Jun</button>
+<button id="btn_7" onclick="handleButtonClick(event)">Jul</button>
+<button id="btn_8" onclick="handleButtonClick(event)">Aug</button>
+<button id="btn_9" onclick="handleButtonClick(event)">Sep</button>
+<button id="btn_10" onclick="handleButtonClick(event)">Oct</button>
+<button id="btn_11" onclick="handleButtonClick(event)">Nov</button>
+<button id="btn_12" onclick="handleButtonClick(event)">Dec</button>
+<button id="btn_13" onclick="handleButtonClick(event)">Sheet1</button>
+</div>
+</body>
+</html>
